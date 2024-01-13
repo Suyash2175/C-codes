@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+int main() {
+    int matrix[3][3];
+    int rowSum[3] = {0}, colSum[3] = {0};
+    int i, j;
+
+    // Input for the 3x3 matrix
+    printf("Enter elements of the 3x3 matrix:\n");
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            printf("Enter element at position (%d, %d): ", i + 1, j + 1);
+            scanf("%d", &matrix[i][j]);
+
+            // Calculating row and column sums
+            rowSum[i] += matrix[i][j];
+            colSum[j] += matrix[i][j];
+        }
+    }
+
+    // Displaying the matrix
+    printf("\nEntered 3x3 matrix:\n");
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            printf("%d\t", matrix[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Displaying the sum of each row
+    printf("\nSum of each row:\n");
+    for (i = 0; i < 3; i++) {
+        printf("Row %d: %d\n", i + 1, rowSum[i]);
+    }
+
+    // Displaying the sum of each column
+    printf("\nSum of each column:\n");
+    for (j = 0; j < 3; j++) {
+        printf("Column %d: %d\t", j + 1, colSum[j]);
+    }
+
+    return 0;
+}
