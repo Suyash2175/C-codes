@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+int main() {
+    int mat1[2][2], mat2[2][2], result[2][2];
+    int i, j, k;
+
+    // Input for the first matrix
+    printf("Enter elements of the first 2x2 matrix:\n");
+    for (i = 0; i < 2; i++) {
+        for (j = 0; j < 2; j++) {
+            printf("Enter element at position (%d, %d): ", i + 1, j + 1);
+            scanf("%d", &mat1[i][j]);
+        }
+    }
+
+    // Input for the second matrix
+    printf("\nEnter elements of the second 2x2 matrix:\n");
+    for (i = 0; i < 2; i++) {
+        for (j = 0; j < 2; j++) {
+            printf("Enter element at position (%d, %d): ", i + 1, j + 1);
+            scanf("%d", &mat2[i][j]);
+        }
+    }
+
+    // Multiplication
+    for (i = 0; i < 2; i++) {
+        for (j = 0; j < 2; j++) {
+            result[i][j] = 0;
+            for (k = 0; k < 2; k++) {
+                result[i][j] += mat1[i][k] * mat2[k][j];
+            }
+        }
+    }
+
+    // Displaying the result
+    printf("\nResultant matrix after multiplication:\n");
+    for (i = 0; i < 2; i++) {
+        for (j = 0; j < 2; j++) {
+            printf("%d\t", result[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
