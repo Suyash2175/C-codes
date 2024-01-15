@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+    int N, i;
+    unsigned long long factorial = 1;
+
+    // Input the value of N
+    printf("Enter a non-negative integer N: ");
+    scanf("%d", &N);
+
+    // Check if N is non-negative
+    if (N < 0) {
+        printf("Please enter a non-negative integer.\n");
+        return 1; // Exit with an error code
+    }
+
+    // Calculate the factorial of N
+    for (i = 1; i <= N; ++i) {
+        factorial *= i;
+    }
+
+    // Print the factorial of N
+    printf("The factorial of %d is: %llu\n", N, factorial);
+
+    return 0; // Exit successfully
+}
