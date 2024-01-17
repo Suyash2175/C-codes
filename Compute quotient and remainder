@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main() {
+    int a, b;
+
+    // Input values for a and b
+    printf("Enter the value of a: ");
+    scanf("%d", &a);
+
+    printf("Enter the value of b (non-zero): ");
+    scanf("%d", &b);
+
+    // Check if b is non-zero
+    if (b == 0) {
+        printf("Error: Division by zero is undefined.\n");
+        return 1; // Return an error code
+    }
+
+    // Compute quotient and remainder
+    int quotient = a / b;
+    int remainder = a % b;
+
+    // Display the results
+    printf("Quotient: %d\n", quotient);
+    printf("Remainder: %d\n", remainder);
+
+    return 0;
+}
