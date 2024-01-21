@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Function to allocate memory for a dynamic array
+int* createDynamicArray(int size) {
+    int* dynamicArray = (int*)malloc(size * sizeof(int));
+    if (dynamicArray == NULL) {
+        printf("Memory allocation failed\n");
+        exit(EXIT_FAILURE);
+    }
+    return dynamicArray;
+}
+
+// Function to initialize a dynamic array with values
+void initializeArray(int* array, int size) {
+    for (int i = 0; i < size; ++i) {
+        array[i] = i + 1;
+    }
+}
+
+// Function to print the elements of a dynamic array
+void printArray(const int* array, int size) {
+    for (int i = 0; i < size; ++i) {
+        printf("%d ", array[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int initialSize = 5;
+    
+    // Allocate memory for a dynamic array using malloc
+    int* dynamicArray = createDynamicArray(initialSize);
+
+    // Initialize the dynamic array with values
+    initializeArray(dynamicArray, initialSize);
+
+    // Print the initial dynamic array
+    printf("Initial Dynamic Array: ");
+    printArray(dynamicArray, initialSize);
+
+    // Resize the dynamic array using realloc
+    int newSize = 10;
+    dynamicArray = (int*)realloc(dynamicArray, newSize * sizeof(int));
+    if (dynamicArray == NULL) {
+        printf("Memory reallocation failed\n");
+        exit(EXIT_FAILURE);
+    }
+
+    // Initialize the additional elements
+    initializeArray(dynamicArray + initialSize, newSize - initialSize);
+
+    // Print the resized dynamic array
+    printf("Resized Dynamic Array: ");
+    printArray(dynamicArray, newSize);
+
+    // Deallocate memory using free
+    free(dynamicArray);
+
+    return 0;
+}
