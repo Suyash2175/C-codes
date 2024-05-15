@@ -9,7 +9,7 @@ int factorial(int n) {
     }
 }
 
-int main() {
+int main() 
     int num;
     
     // Input from user
